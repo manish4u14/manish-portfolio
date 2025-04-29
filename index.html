@@ -1,63 +1,848 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manish Chaudhari | Resume</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manish Chaudhari - Senior Business Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a6bff;
+            --secondary: #ff6b6b;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --accent: #20c997;
+            --text: #495057;
+            --bg-light: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg-light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--dark);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .nav-links a.active {
+            background-color: var(--primary);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+        
+        h3 {
+            color: var(--dark);
+            margin: 1.5rem 0 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Professional Summary */
+        .summary {
+            background: linear-gradient(to right, rgba(74, 107, 255, 0.1), rgba(255, 107, 107, 0.1));
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-category {
+            background-color: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .skill-category h4 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .skills-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+        
+        .job-title {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+        
+        .company {
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .date {
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .job-description {
+            margin-top: 1rem;
+        }
+        
+        .job-description ul {
+            margin-left: 1.5rem;
+        }
+        
+        .job-description li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(74, 107, 255, 0.3);
+        }
+        
+        /* Certifications */
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .certification-item {
+            background-color: var(--light);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        /* Education */
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .degree {
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .back-to-top {
+            display: inline-block;
+            margin-top: 1rem;
+            color: white;
+            text-decoration: none;
+            background-color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background-color: #3a5bef;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links a {
+                padding: 0.8rem 1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .job-title {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        section {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+        section:nth-child(6) { animation-delay: 0.5s; }
+        
+        /* Interactive Elements */
+        .collapsible {
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .collapsible::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .collapsible.active::after {
+            content: '-';
+        }
+        
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        /* Progress bars for skills */
+        .skill-meter {
+            margin-top: 1rem;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+        }
+        
+        .meter {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 4px;
+        }
+        
+        /* Theme toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            border: none;
+            font-size: 1.2rem;
+        }
+        
+        /* Dark theme */
+        body.dark-theme {
+            --bg-light: #1a1a2e;
+            --text: #e6e6e6;
+            --light: #16213e;
+            --dark: #0f3460;
+            background-color: var(--bg-light);
+        }
+        
+        body.dark-theme section {
+            background-color: var(--dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        body.dark-theme .skill-category,
+        body.dark-theme .certification-item {
+            background-color: rgba(255,255,255,0.05);
+        }
+        
+        body.dark-theme h3,
+        body.dark-theme .company,
+        body.dark-theme .degree {
+            color: white;
+        }
+        
+        body.dark-theme .tech-tag {
+            background-color: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <div class="max-w-4xl mx-auto p-6">
-    <header class="text-center border-b pb-4 mb-6">
-      <h1 class="text-3xl font-bold">Manish Chaudhari</h1>
-      <p class="text-lg text-gray-600">Senior Business Analyst | Technical & AI Integration</p>
-      <p class="mt-2 text-sm">Morrisville, NC • <a href="mailto:manish4u14@gmail.com" class="text-blue-600">manish4u14@gmail.com</a> • +1-984 895 9263</p>
+<body>
+    <header>
+        <div class="container header-content">
+            <!-- Replace with your actual image -->
+            <img src="https://via.placeholder.com/150" alt="Manish Chaudhari" class="profile-img">
+            <h1>Manish Chaudhari</h1>
+            <p class="tagline">Senior Business Analyst | Technical & AI Integration | Web Application Expert</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Morrisville, NC, 27560</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:manish4u14@gmail.com">manish4u14@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+1-984-895-9263">+1-984-895-9263</a>
+                </div>
+            </div>
+        </div>
     </header>
-
-    <section class="mb-6">
-      <h2 class="text-xl font-semibold border-b mb-2">Professional Summary</h2>
-      <p>Results-driven Senior Business Systems Analyst with 10+ years of experience in business analysis, system design, and technical implementation. Expertise in Web API integration, Middleware, Salesforce, and AI-driven automation...</p>
-    </section>
-
-    <section class="mb-6">
-      <h2 class="text-xl font-semibold border-b mb-2">Skills & AI Capabilities</h2>
-      <ul class="list-disc pl-6 space-y-1">
-        <li>Business & System Analysis: Requirements gathering, user story writing (AI tools), process mapping</li>
-        <li>Web API & Middleware: API design, integration, troubleshooting</li>
-        <li>AI Tools: ChatGPT, Claude, Bard, prompt engineering</li>
-        <li>Heroku, Salesforce, EazyBI, Kibana, New Relic, Postman, Node.js</li>
-      </ul>
-    </section>
-
-    <section class="mb-6">
-      <h2 class="text-xl font-semibold border-b mb-2">Certifications</h2>
-      <ul class="list-disc pl-6 space-y-1">
-        <li>Professional Scrum Product Owner (PSPO)</li>
-        <li>Generative AI Certification – Microsoft & LinkedIn</li>
-        <li>Deep Learning & AI Ethics – UT Austin</li>
-      </ul>
-    </section>
-
-    <section class="mb-6">
-      <h2 class="text-xl font-semibold border-b mb-2">Education</h2>
-      <p>Master of Science in Artificial Intelligence – UT Austin (Pursuing)</p>
-      <p>Bachelor of Engineering in Computer Science – SLIET</p>
-    </section>
-
-    <section class="mb-6">
-      <h2 class="text-xl font-semibold border-b mb-2">Professional Experience</h2>
-      <h3 class="font-semibold">Sr. AI Business Analyst – Align Technology</h3>
-      <p class="text-sm text-gray-600 mb-2">Morrisville, NC | Dec 2021 – Present</p>
-      <ul class="list-disc pl-6 space-y-1">
-        <li>Used Generative AI for requirement gathering, reducing effort by 40%</li>
-        <li>Managed Heroku apps with add-ons like New Relic and Pingdom</li>
-        <li>AI-powered sprint planning using Atlassian AI</li>
-      </ul>
-    </section>
-
-    <footer class="text-center mt-10 text-sm text-gray-500">
-      &copy; 2024 Manish Chaudhari • Resume Website
+    
+    <nav>
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#summary" class="active">Summary</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="summary" class="summary">
+            <h2>Professional Summary</h2>
+            <p>Results-driven <strong>Senior Business Systems Analyst</strong> with <strong>10+ years of experience</strong> in <strong>business analysis, system design, and technical implementation</strong>. Expertise in <strong>Web API integration, Middleware, Salesforce, and AI-driven automation</strong>. Proven ability to lead <strong>consumer and provider-facing web applications</strong>, optimize workflows, and enhance productivity with <strong>AI-powered tools</strong>. Skilled in <strong>Heroku app management</strong>, including <strong>environment configuration, performance monitoring, and add-on integrations</strong> (New Relic, Bug Snag, Pingdom). Adept at <strong>bridging business and technical teams</strong>, leading <strong>Scrum teams</strong>, and implementing <strong>AI-enhanced sprint planning and strategic decision-making</strong> to drive efficiency and innovation.</p>
+        </section>
+        
+        <section id="skills">
+            <h2>Skills & AI Capabilities</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>Business & System Analysis</h4>
+                    <ul class="skills-list">
+                        <li>Requirements gathering, user story writing (using AI tools), process mapping</li>
+                        <li>Functional & non-functional requirements documentation</li>
+                        <li>Reverse engineering of existing systems</li>
+                        <li>AI-powered requirement analysis and workflow optimization</li>
+                        <li>Web application analysis and optimization</li>
+                        <li>Salesforce CRM: Lead generation, campaign and event management</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Technical & AI Skills</h4>
+                    <ul class="skills-list">
+                        <li>Web API & Middleware: API design, integration, troubleshooting</li>
+                        <li>Databases: MongoDB, SQL Server, Salesforce SOQL</li>
+                        <li>AI-Powered Productivity: Generative AI (ChatGPT, Claude, Bard)</li>
+                        <li>Heroku Cloud Services: App creation, environment management</li>
+                        <li>AI & Business Intelligence Tools: Visily.ai, EazyBI, Kibana</li>
+                        <li>UI/UX Tools: Figma, Lucid Chart</li>
+                        <li>Scripting & Development: Postman, Node.js, Bash</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Soft Skills</h4>
+                    <ul class="skills-list">
+                        <li>Strong communication and problem-solving</li>
+                        <li>Stakeholder engagement & cross-functional collaboration</li>
+                        <li>Agile & Scrum methodologies</li>
+                        <li>AI-driven strategic decision-making</li>
+                    </ul>
+                    
+                    <h4 class="collapsible" style="margin-top: 1.5rem;">Technical Proficiency</h4>
+                    <div class="content">
+                        <div class="skill-meter">
+                            <div class="skill-name">
+                                <span>Web API & Integration</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="meter">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-meter">
+                            <div class="skill-name">
+                                <span>AI Integration</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="meter">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-meter">
+                            <div class="skill-name">
+                                <span>Salesforce CRM</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="meter">
+                                <div class="progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-meter">
+                            <div class="skill-name">
+                                <span>Heroku Management</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="meter">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <h2>Professional Experience & AI Integration</h2>
+            
+            <div class="experience-item">
+                <div class="job-title">
+                    <h3 class="company">Sr. AI Business Analyst</h3>
+                    <span class="date">December 2021 -- Present</span>
+                </div>
+                <div class="company">Align Technology, Morrisville, NC</div>
+                <div class="job-description">
+                    <ul>
+                        <li><strong>Worked extensively on consumer and provider-facing web applications</strong>, ensuring seamless user experience and technical implementation.</li>
+                        <li><strong>Leveraged Generative AI</strong> for requirement gathering, user story creation, and documentation, reducing manual effort by <strong>40%</strong>.</li>
+                        <li>Used <strong>Visily.ai</strong> to create AI-powered mockups, technical architecture diagrams, and workflow visualizations.</li>
+                        <li><strong>Implemented AI-driven sprint planning & estimation</strong> using <strong>Atlassian AI</strong>, improving sprint accuracy and backlog prioritization by <strong>25%</strong>.</li>
+                        <li>Managed multiple <strong>Scrum teams</strong>, driving Agile ceremonies and optimizing team performance through <strong>AI-assisted retrospective analysis</strong>.</li>
+                        <li>Utilized <strong>AI-based monitoring tools</strong> (New Relic, Bug Snag, Kibana) to analyze website performance and identify potential optimizations.</li>
+                    </ul>
+                    
+                    <div class="tech-tags">
+                        <span class="tech-tag">Generative AI</span>
+                        <span class="tech-tag">AI-driven automation</span>
+                        <span class="tech-tag">Web API</span>
+                        <span class="tech-tag">Salesforce</span>
+                        <span class="tech-tag">Heroku</span>
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">Postman</span>
+                        <span class="tech-tag">Node.js</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-title">
+                    <h3 class="company">Sr. Business Systems Analyst & Scrum Master</h3>
+                    <span class="date">August 2018 -- December 2021</span>
+                </div>
+                <div class="company">Align Technology, Hyderabad, IN</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Led technical implementation efforts for web applications serving consumer and provider portals.</li>
+                        <li>Designed interactive wireframes and UI prototypes in Figma for front-end applications.</li>
+                        <li>Conducted AI-driven data analysis using Kibana and Splunk to optimize system performance.</li>
+                        <li>Leveraged Salesforce CRM for managing lead pipelines, campaigns, and sales analytics.</li>
+                        <li>Managed Heroku-based applications, tracking uptime, downtime, performance metrics, and optimizing dyno configuration.</li>
+                    </ul>
+                    
+                    <div class="tech-tags">
+                        <span class="tech-tag">Salesforce CRM</span>
+                        <span class="tech-tag">SOQL</span>
+                        <span class="tech-tag">Heroku</span>
+                        <span class="tech-tag">AI-driven backlog management</span>
+                        <span class="tech-tag">Web API</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-title">
+                    <h3 class="company">Business Analyst/SQA</h3>
+                    <span class="date">June 2013 -- August 2018</span>
+                </div>
+                <div class="company">Microsoft, Hyderabad, IN</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Collaborated with stakeholders to gather and define project requirements, ensuring alignment with business objectives.</li>
+                        <li>Developed comprehensive project documentation, including functional specifications and user stories.</li>
+                        <li>Performed user acceptance testing (UAT), leading to successful project go-lives with minimal post-launch issues.</li>
+                        <li>Identified and documented defects using Visual Studio, ensuring timely resolution and retesting.</li>
+                    </ul>
+                    
+                    <div class="tech-tags">
+                        <span class="tech-tag">Visual Studio</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">JIRA</span>
+                        <span class="tech-tag">Confluence</span>
+                        <span class="tech-tag">AI-powered documentation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="certifications">
+                <div class="certification-item">
+                    <h4>Professional Scrum Product Owner (PSPO)</h4>
+                    <p>Scrum.org</p>
+                </div>
+                <div class="certification-item">
+                    <h4>Professional Scrum Master (PSM)</h4>
+                    <p>Scrum.org</p>
+                </div>
+                <div class="certification-item">
+                    <h4>Business Analysis Certification</h4>
+                    <p>IIBA</p>
+                </div>
+                <div class="certification-item">
+                    <h4>Generative AI Certification</h4>
+                    <p>Microsoft & LinkedIn</p>
+                </div>
+                <div class="certification-item">
+                    <h4>Deep Learning & AI Ethics</h4>
+                    <p>University of Texas at Austin</p>
+                </div>
+                <div class="certification-item">
+                    <h4>JIRA Admin & Project Management</h4>
+                    <p>Atlassian</p>
+                </div>
+                <div class="certification-item">
+                    <h4>Python PCEP Certification</h4>
+                    <p>Python Institute</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3 class="degree">Master of Science in Artificial Intelligence</h3>
+                <p>University of Texas at Austin (Pursuing, Expected July 2026)</p>
+            </div>
+            <div class="education-item">
+                <h3 class="degree">Bachelor of Engineering in Computer Science</h3>
+                <p>SLIET, Sangrur, Punjab (2012)</p>
+            </div>
+            <div class="education-item">
+                <h3 class="degree">Diploma in Computer Science</h3>
+                <p>SLIET, Longowal, Punjab</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <h3>Let's Connect</h3>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/manish4u14" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:manish4u14@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2023 Manish Chaudhari. All rights reserved.</p>
+            <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to Top</a>
+        </div>
     </footer>
-  </div>
+    
+    <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+    
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Scroll to section
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'inline-block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+        
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const icon = themeToggle.querySelector('i');
+            if (document.body.classList.contains('dark-theme')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+    </script>
 </body>
 </html>
