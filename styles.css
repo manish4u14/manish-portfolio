@@ -55,8 +55,8 @@ header::before {
 }
 
 .profile-img {
-    width: 100px;        /* Perfect size for profile pics */
-    height: 100px;       /* Maintain aspect ratio */
+    width: 50px;        /* Perfect size for profile pics */
+    height: 50px;       /* Maintain aspect ratio */
     object-fit: cover;   /* Prevents image distortion */
     border-radius: 50%;  /* Makes it circular */
     border: 4px solid white;
