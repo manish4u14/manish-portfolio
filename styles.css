@@ -55,13 +55,14 @@ header::before {
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 180px;        /* Perfect size for profile pics */
+    height: 180px;       /* Maintain aspect ratio */
+    object-fit: cover;   /* Prevents image distortion */
+    border-radius: 50%;  /* Makes it circular */
     border: 4px solid white;
-    margin-bottom: 1rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: block;      /* Removes extra space below */
+    margin: 0 auto;      /* Centers the image */
 }
 
 h1 {
