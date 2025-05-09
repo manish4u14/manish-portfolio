@@ -7,14 +7,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Particle.js for animated background -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Animate.css for text animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-          <img src="profile.jpeg" class="profile-img" alt="Manish Chaudhari">
-            <h1>Manish Chaudhari</h1>
-            <p class="tagline">Senior Business Analyst | Technical & AI Integration | Web Application Expert</p>
-            <div class="contact-info">
+    <header class="animated-header">
+         <div class="container header-content">
+            <img src="profile.jpeg" class="profile-img" alt="Manish Chaudhari" id="profile-pic">
+            <div class="header-text">
+              <h1 class="animate-name">Manish Chaudhari</h1>
+              <p class="tagline animate-tagline">Senior Business Analyst | Technical & AI Integration | Web Application Expert</p>
+              <div class="contact-info animate-contacts">
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>Morrisville, NC, 27560</span>
@@ -29,6 +35,7 @@
                 </div>
             </div>
         </div>
+        <div class="header-bg"></div>
     </header>
     
     <nav>
