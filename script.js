@@ -1,3 +1,4 @@
+
 // Smooth scrolling for navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -77,4 +78,14 @@ themeToggle.addEventListener('click', () => {
         icon.classList.remove('fa-sun');
         icon.classList.add('fa-moon');
     }
+});
+
+// Add to script.js
+document.getElementById('email-link').addEventListener('click', function(e) {
+  e.preventDefault();
+  navigator.clipboard.writeText('manish4u14@gmail.com');
+  
+  const tooltip = this.nextElementSibling;
+  tooltip.textContent = 'Copied!';
+  setTimeout(() => tooltip.textContent = 'Click to copy', 2000);
 });
